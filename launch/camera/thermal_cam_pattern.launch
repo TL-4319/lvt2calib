@@ -1,7 +1,7 @@
 <launch>
   <arg name="ifCompressed" default="false"/>
   <arg name="image_tp" default="/thermal_cam/thermal_image"/>
-  <arg name="cam_info_dir" default="$(find lvt2calib)/data/camera_info/intrinsic.txt"/>
+  <arg name="cam_info_dir" default="intrinsic.txt"/>
   <arg name="ns_" default="thermal"/>
 
   <include file="$(find lvt2calib)/launch/camera/cam_pattern.launch">

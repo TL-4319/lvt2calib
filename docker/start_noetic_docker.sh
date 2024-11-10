@@ -11,4 +11,4 @@ sudo docker run -it --network=host --privileged --rm \
     -v $HOME/.ssh:$HOME/.ssh \
     -e DISPLAY=$DISPLAY \
     -e QT_X11_NO_MITSHM=1 \
-    lvt2calib:noetic
+    osrf/ros:noetic-desktop-full
