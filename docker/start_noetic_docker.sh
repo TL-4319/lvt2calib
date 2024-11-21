@@ -8,6 +8,7 @@ sudo docker run -it --network=host --privileged --rm \
     -v ${PWD}:/home/catkin_ws/src/lvt2calib \
 	-v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /dev:/dev \
+    -v ${PWD}/bag:/data \
     -v $HOME/.ssh:$HOME/.ssh \
     -e DISPLAY=$DISPLAY \
     -e QT_X11_NO_MITSHM=1 \
