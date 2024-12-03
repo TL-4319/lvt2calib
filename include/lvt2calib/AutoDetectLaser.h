@@ -4,7 +4,7 @@
 #define PCL_NO_RECOMPILE
 #define DEBUG1 0
 #define DEBUG2 0
-// #define STATIC_ANALYSE
+//#define STATIC_ANALYSE
 
 #include <pcl/io/pcd_io.h>
 #include <pcl/io/png_io.h>
@@ -98,7 +98,7 @@ class AutoDetectLaser: public EstimateBoundary<PointType_>
         // for auto-detect
         Eigen::Matrix4f Tr_ukn2tpl_, Tr_calib2tpl_;
         double rmse_ukn2tpl_, rmse_tpl2ukn_, icp_score_ = 0.0;
-        double remove_x_min_ = -1.0, remove_x_max_ = 1.0;
+        double remove_x_min_ = -1.0, remove_x_max_ = 10.0;
         std::vector<double> Pseg_time_v, check_time_v;
 
         // for debug view
@@ -230,6 +230,9 @@ bool AutoDetectLaser::detectCalibBoard(CloudType_::Ptr &cloud_in,
     pass_x.setNegative (true);
     pass_x.filter(*x_filtered);
     pcl::copyPointCloud(*x_filtered, *x_filtered_);
+    #ifdef STATIC_ANALYSE	
+    showPointXYZI(x_filtered, 2, "pointcloud after x-filter");
+    #endif
 
     // ********************** 2. Downsampling *********************
     if(use_vox_filter_)
@@ -282,7 +285,9 @@ bool AutoDetectLaser::detectCalibBoard(CloudType_::Ptr &cloud_in,
     }
     else
         pcl::copyPointCloud(*x_filtered, *cloud2);
-    // if(auto_mode_) showPointXYZI(cloud2, 1, "pointcloud after voxel");
+    #ifdef STATIC_ANALYSE	
+    showPointXYZI(cloud2, 2, "pointcloud after voxel");
+    #endif
     pcl::copyPointCloud(*cloud2, *ds_filtered_);
 
     // ******************** 3. Gaussion filter *******************
@@ -307,7 +312,10 @@ bool AutoDetectLaser::detectCalibBoard(CloudType_::Ptr &cloud_in,
         convolution.setRadiusSearch(gauss_conv_radius_);
 
         convolution.convolve(*cloud_gauss_filtered);
-        // if(auto_mode_) showPointXYZI(cloud_gauss_filtered, 1, "after gauss filter"); 
+        
+        #ifdef STATIC_ANALYSE
+        showPointXYZI(cloud_gauss_filtered, 1, "after gauss filter"); 
+        #endif
 
         pcl::copyPointCloud(*cloud_gauss_filtered, *cloud2);
         pcl::copyPointCloud(*cloud_gauss_filtered, *gs_filtered_);
@@ -318,7 +326,7 @@ bool AutoDetectLaser::detectCalibBoard(CloudType_::Ptr &cloud_in,
     {
         cloud2 = IntensityFilter(cloud2, i_filter_out_min_, i_filter_out_max_);
         #ifdef STATIC_ANALYSE
-        showPointXYZI(filtered_plane, 2, "Intensity Filter Result");
+        showPointXYZI(cloud2, 2, "Intensity Filter Result");
         #endif 
     }
 

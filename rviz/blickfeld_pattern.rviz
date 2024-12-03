@@ -75,7 +75,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.009999999776482582
       Style: Points
-      Topic: /rs_m1/laser_pattern/calib_board_cloud
+      Topic: /blickfeld/laser_pattern/calib_board_cloud
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -103,7 +103,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.009999999776482582
       Style: Spheres
-      Topic: /rs_m1/laser_pattern/acc_boards_filtered
+      Topic: /blickfeld/laser_pattern/acc_boards_filtered
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -131,7 +131,7 @@ Visualization Manager:
       Size (Pixels): 5
       Size (m): 0.029999999329447746
       Style: Spheres
-      Topic: /rs_m1/laser_pattern_circle/circle_center_cloud
+      Topic: /blickfeld/laser_pattern_circle/circle_center_cloud
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -168,7 +168,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.009999999776482582
       Style: Points
-      Topic: /rs_m1/laser_pattern/cloud_in
+      Topic: /blickfeld/laser_pattern/cloud_in
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -196,7 +196,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.05000000074505806
       Style: Spheres
-      Topic: /rs_m1/acc_laser_centroids
+      Topic: /blickfeld/acc_laser_centroids
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true

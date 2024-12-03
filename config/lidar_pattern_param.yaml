@@ -1,6 +1,6 @@
 # x_passthrough_filter: Remove the refelction noise produced by Livox. No need to be edit if unnecessary. 
 remove_x_min: -1.0
-remove_x_max: 1.0
+remove_x_max: 2
 
 # voxel filter：use VoxelGrid to downsample and uniform the point cloud. 
 voxel_grid_size: 0.01
@@ -18,7 +18,7 @@ cluster_size_min: 0.05
 cluster_size_max: 20
 
 # plane segmentation 
-Pseg_dis_thre: 0.02
+Pseg_dis_thre: 0.05
 Pseg_iter_num: 1000
 Pseg_size_min: 0.1
 
@@ -32,8 +32,8 @@ sor_MeanK: 10
 sor_StddevMulThresh: 1
 
 # intensity filter          
-i_filter_out_min: 0.0
-i_filter_out_max: 30.0 
+i_filter_out_min: -1.0
+i_filter_out_max: 400.0 
 # 20 ~ 50 
 
 # boundary estimation: to estimate the surface boundary based on the normal estimation 

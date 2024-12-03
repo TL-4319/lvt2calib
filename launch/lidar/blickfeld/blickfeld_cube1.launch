@@ -8,9 +8,9 @@
         <arg name="ns_" value="$(arg ns_)"/>
         <arg name="use_passthrough_preprocess" value="$(arg use_passthrough_preprocess)"/>
         <arg name="cloud_tp" value="$(arg cloud_tp)"/>
-        <arg name="cluster_tole" value="0.05"/>
-        <arg name="cluster_size_min" value="0.03"/>
-        <arg name="cluster_size_max" value="0.5"/>
-        <arg name="i_filter_out_max" value="30"/>
+        <arg name="cluster_tole" value="0.1"/>
+        <arg name="cluster_size_min" value="0.001"/>
+        <arg name="cluster_size_max" value="10.0"/>
+        <arg name="i_filter_out_max" value="100.0"/>
     </include>
 </launch>
